@@ -17,9 +17,9 @@ primary key (codFunc)
  
 create table Usuarios(
 codUsu int not null auto_increment,
-NomeUsu varchar (50),
-Login char (8),
-Senha char (8),
+nomeUsu varchar (50),
+login char (8),
+senha char (8),
 primary key (codUsu)
 );
  
@@ -33,19 +33,19 @@ primary key (codCli)
  
 create table Projetos(
 codProj int not null auto_increment,
-FormaContato varchar (50), 
-Logradouro varchar (100) not null,
-Bairro varchar (50) not null,
-Estado char (2), 
-Cidade varchar (50), 
-Complemento varchar (50),
-TipoImovel varchar (50), 
-TipoServico varchar (50),
-Metragem int,
-Revestimentos varchar (50),
-Marcenaria varchar (50),
-DescricaoAmbiente text,
-FotosAmbiente blob,
+formaContato varchar (50), 
+logradouro varchar (100) not null,
+bairro varchar (50) not null,
+estado char (2), 
+cidade varchar (50), 
+complemento varchar (50),
+tipoImovel varchar (50), 
+tipoServico varchar (50),
+metragem int,
+revestimentos varchar (50),
+marcenaria varchar (50),
+descricaoAmbiente text,
+fotosAmbiente blob,
 codCli int not null,
 codAmb int not null,
 primary key (codProj),
@@ -55,8 +55,8 @@ foreign key (codAmb) references Ambientes (codAmb)
  
 create table Orcamentos(
 codOrc int not null auto_increment,
-ValorInicial decimal (9,2) not null,
-ValorTotal decimal (9,2), 
+valorInicial decimal (9,2) not null,
+valorTotal decimal (9,2), 
 codCli int not null auto_increment,
 codProj int not null auto_increment,
 primary key (codOrc),
@@ -78,6 +78,8 @@ descricao text,
 fotosGaleria blob,
 primary key (codGal)
 );
+
+
  
 desc Funcionarios;
 desc Usuarios;
