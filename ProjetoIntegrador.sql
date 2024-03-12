@@ -6,46 +6,46 @@ use dbIntre;
  
 create table tbFuncionarios(
 codFunc int not null auto_increment,
-nomeFunc varchar(50),
-cpfFunc char(11),
-dataNasc date,
-rgFunc char(11),
-dataExp date,
-UF char(2),
+nomeFunc varchar(50) not null,
+cpfFunc char(11) not null,
+dataNasc date not null,
+rgFunc char(11) not null,
+dataExp date not null,
+UF char(2) not null,
 primary key(codFunc)
 );
  
 create table tbUsuarios(
 codUsu int not null auto_increment,
-nomeUsu varchar(50),
-login char(8),
-senha char(8),
+nomeUsu varchar(50) not null,
+login char(8) not null,
+senha char(8) not null,
 primary key(codUsu)
 );
  
 create table tbClientes(
 codCli int not null auto_increment,
-nome varchar(50),
-email varchar(50),
-telCli char(11),
+nomeCli varchar(50) not null,
+emailCli varchar(50) not null,
+telCli char(11) not null,
 primary key(codCli)
 );	
  
 create table tbProjetos(
 codProj int not null auto_increment,
-formaContato varchar(50), 
+formaContato varchar(50) not null, 
 logradouro varchar(100) not null,
 bairro varchar(50) not null,
-estado char(2), 
-cidade varchar(50), 
-complemento varchar(50),
-tipoImovel varchar(50), 
-tipoServico varchar(50),
-metragem int, -- metragem numero quebrado não int
-revestimentos varchar(50),
-marcenaria varchar(50),
-descricaoAmbiente text,
-fotosAmbiente blob,
+estado char(2) not null, 
+cidade varchar(50) not null, 
+complemento varchar(50) not null,
+tipoImovel varchar(50) not null, 
+tipoServico varchar(50) not null,
+metragem decimal(4,2) not null,
+revestimentos varchar(50) not null,
+marcenaria varchar(50) not null,
+descricaoAmbiente text not null,
+fotosAmbiente blob not null,
 codCli int not null,
 codAmb int not null,
 primary key(codProj),
@@ -56,7 +56,7 @@ foreign key(codAmb) references tbAmbientes(codAmb)
 create table tbOrcamentos(
 codOrc int not null auto_increment,
 valorInicial decimal(9,2) not null,
-valorTotal decimal(9,2), 
+valorTotal decimal(9,2) not null, 
 codCli int not null,
 codProj int not null,
 codUsu int not null,
@@ -68,17 +68,19 @@ foreign key(codUsu) references tbUsuarios(codUsu)
  
 create table tbAmbientes(
 codAmb int not null auto_increment,
-NomeAmb varchar(15),
+nomeAmb varchar(15) not null,
 primary key(codAmb)
 );
  
 create table tbGaleria(
 codGal int not null auto_increment,
-titulo varchar(50),
-descricao text,
-fotosGaleria blob,
+tituloGal varchar (50) not null,
+descricaoGal text not null,
+fotosGaleria blob not null,
 primary key(codGal)
 );
+
+
  
 desc Funcionarios;
 desc Usuarios;
