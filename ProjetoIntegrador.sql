@@ -114,6 +114,7 @@ valorTotal decimal(9,2) not null,
 codCli int not null,
 codProj int not null,
 codUsu int not null,
+<<<<<<< HEAD
 codMetr int not null,
 codExtra int not null,
 primary key(codOrc),
@@ -121,6 +122,12 @@ foreign key(codProj) references tbProjetos(codProj),
 foreign key(codUsu) references tbUsuarios(codUsu),
 foreign key(codMetr) references tbMetragens(codMetr),
 foreign key(codExtra) references tbExtras(codExtra)
+=======
+primary key(codOrc),
+foreign key(codCli) references tbClientes(codCli),
+foreign key(codProj) references tbProjetos(codProj),
+foreign key(codUsu) references tbUsuarios(codUsu)
+>>>>>>> 3269169a073d3c2593364d633f561005032ea689
 );
  
 create table tbAmbientes(
@@ -146,3 +153,53 @@ desc Projetos;
 desc Orcamentos;
 desc Ambientes;
 desc Galeria;
+
+
+-- Tabelas que terão INSERTs fixos:
+create table tbExtras(
+codExtra int not null auto_increment,
+descricao varchar(255) not null,
+valor decimal(9, 2),
+primary key(codExtra)
+);
+
+-- INSERTs fixos para a tabela Extras:
+insert into tbExtras(descricao, valor) values ('Pasta de entrega', 10.00);
+insert into tbExtras(descricao, valor) values ('Plotagens', 15.00);
+insert into tbExtras(descricao, valor) values ('Overdelivery', 0.0);
+insert into tbExtras(descricao, valor) values ('Visitas técnicas avulsas', 150.00);
+insert into tbExtras(descricao, valor) values ('Taxas de Prefeitura', 0.0);
+insert into tbExtras(descricao, valor) values ('RRT', 150.00);
+insert into tbExtras(descricao, valor) values ('Papelaria', 0.0);
+insert into tbExtras(descricao, valor) values ('Deslocamento', 0.0);
+
+create table tbTipoOrcamento(
+codTipo int not null auto_increment,
+descricao varchar(255) not null,
+primary key(codTipo)
+);
+
+-- INSERTs fixos para a tabela TipoOrcamento:
+insert into tbTipoOrcamento(descricao) values ("BÁSICO"); -- cod 1
+insert into tbTipoOrcamento(descricao) values ("PL + 3D"); -- cod 2
+insert into tbTipoOrcamento(descricao) values ("COMPLETO + 3D"); -- cod 3
+
+create table tbMetragens(
+codTipo int not null,
+descricao varchar(255) not null,
+metragemMin decimal,
+metragemMax decimal,
+valor decimal(9, 2),
+foreign key(codTipo) references tbTipoOrcamento(codTipo)
+);
+
+-- INSERTs fixos para a tabela Metragens:
+
+-- Para o tipo de Orçamento: BÁSICO:
+insert into tbMetragens(codTipo, descricao, metragemMin, metragemMax, valor) values (1, "Um cômodo", 15, 15, 225.00);
+
+-- Para o tipo de Orçamento: PL + 3D:
+insert into tbMetragens(codTipo, descricao, metragemMin, metragemMax, valor) values (2, "Um cômodo", 15, 15, 225.00);
+
+-- Para o tipo de Orçamento: COMPLETO + 3D:
+insert into tbMetragens(codTipo, descricao, metragemMin, metragemMax, valor) values (3, "Um cômodo", 15, 15, 225.00);
