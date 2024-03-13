@@ -110,11 +110,9 @@ insert into tbExtras(descricao, valor) values ('Deslocamento', 0.0);
 create table tbOrcamentos(
 codOrc int not null auto_increment,
 valorInicial decimal(9,2) not null,
-valorTotal decimal(9,2) not null, 
-codCli int not null,
+valorTotal decimal(9,2) not null,
 codProj int not null,
 codUsu int not null,
-<<<<<<< HEAD
 codMetr int not null,
 codExtra int not null,
 primary key(codOrc),
@@ -122,12 +120,6 @@ foreign key(codProj) references tbProjetos(codProj),
 foreign key(codUsu) references tbUsuarios(codUsu),
 foreign key(codMetr) references tbMetragens(codMetr),
 foreign key(codExtra) references tbExtras(codExtra)
-=======
-primary key(codOrc),
-foreign key(codCli) references tbClientes(codCli),
-foreign key(codProj) references tbProjetos(codProj),
-foreign key(codUsu) references tbUsuarios(codUsu)
->>>>>>> 3269169a073d3c2593364d633f561005032ea689
 );
  
 create table tbAmbientes(
