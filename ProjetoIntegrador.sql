@@ -138,13 +138,13 @@ primary key(codGal)
 
 
  
-desc Funcionarios;
-desc Usuarios;
-desc Clientes;
-desc Projetos;
-desc Orcamentos;
-desc Ambientes;
-desc Galeria;
+desc tbFuncionarios;
+desc tbUsuarios;
+desc tbClientes;
+desc tbProjetos;
+desc tbOrcamentos;
+desc tbAmbientes;
+desc tbGaleria;
 
 
 -- Tabelas que terão INSERTs fixos:
