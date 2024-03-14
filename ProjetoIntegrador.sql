@@ -30,6 +30,12 @@ emailCli varchar(50) not null,
 telCli char(11) not null,
 primary key(codCli)
 );	
+
+create table tbAmbientes(
+codAmb int not null auto_increment,
+nomeAmb varchar(15) not null,
+primary key(codAmb)
+);
  
 create table tbProjetos(
 codProj int not null auto_increment,
@@ -120,12 +126,6 @@ foreign key(codProj) references tbProjetos(codProj),
 foreign key(codUsu) references tbUsuarios(codUsu),
 foreign key(codMetr) references tbMetragens(codMetr),
 foreign key(codExtra) references tbExtras(codExtra)
-);
- 
-create table tbAmbientes(
-codAmb int not null auto_increment,
-nomeAmb varchar(15) not null,
-primary key(codAmb)
 );
  
 create table tbGaleria(
