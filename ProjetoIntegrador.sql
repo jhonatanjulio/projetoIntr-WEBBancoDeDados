@@ -58,6 +58,9 @@ foreign key(codCli) references tbClientes(codCli),
 foreign key(codAmb) references tbAmbientes(codAmb)
 );
 
+-- Insert para CREATE da Janela de Projetos:
+-- insert into tbProjetos(formaContato,logradouro,bairro,estado,cidade,complemento,tipoImovel,tipoServico,metragem,revestimentos,marcenaria,descricaoAmbiente,codCli,codAmb) values("teste","teste","teste","SP","teste","teste","teste","teste",50.50,"teste","teste","teste",1,1);
+
 create table tbTipoOrcamento(
 codTipo int not null auto_increment,
 descricao varchar(255) not null,
@@ -131,11 +134,9 @@ create table tbGaleria(
 codGal int not null auto_increment,
 tituloGal varchar (50) not null,
 descricaoGal text not null,
-fotosGaleria blob not null,
+fotosGaleria varbinary(255) not null,
 primary key(codGal)
 );
-
-
  
 desc tbFuncionarios;
 desc tbUsuarios;
