@@ -31,11 +31,14 @@ telCli char(11) not null,
 primary key(codCli)
 );	
 
+-- insert into tbClientes(nomeCli,emailCli,telCli)values("Teste","Teste",11111111111 );
+
 create table tbAmbientes(
 codAmb int not null auto_increment,
 nomeAmb varchar(15) not null,
 primary key(codAmb)
 );
+-- insert into tbAmbientes(nomeAmb)values("teste");
  
 create table tbProjetos(
 codProj int not null auto_increment,
@@ -51,6 +54,7 @@ metragem decimal(4,2) not null,
 revestimentos varchar(50) not null,
 marcenaria varchar(50) not null,
 descricaoAmbiente text not null,
+status boolean not null,
 codCli int not null,
 codAmb int not null,
 primary key(codProj),
@@ -58,8 +62,8 @@ foreign key(codCli) references tbClientes(codCli),
 foreign key(codAmb) references tbAmbientes(codAmb)
 );
 
--- Insert para CREATE da Janela de Projetos:
--- insert into tbProjetos(formaContato,logradouro,bairro,estado,cidade,complemento,tipoImovel,tipoServico,metragem,revestimentos,marcenaria,descricaoAmbiente,codCli,codAmb) values("teste","teste","teste","SP","teste","teste","teste","teste",50.50,"teste","teste","teste",1,1);
+-- insert into tbProjetos(formaContato,logradouro,bairro,estado,cidade,complemento,tipoImovel,tipoServico,metragem,revestimentos,marcenaria,descricaoAmbiente,fotosAmbiente,codCli,codAmb) values("teste","teste","teste","SP","teste","teste","teste","teste",50.50,"teste","teste","teste","C:\Downloads\beligol.jpg",1,1);
+
 
 create table tbTipoOrcamento(
 codTipo int not null auto_increment,
@@ -132,11 +136,13 @@ foreign key(codExtra) references tbExtras(codExtra)
  
 create table tbGaleria(
 codGal int not null auto_increment,
+codImg int not null,
 tituloGal varchar (50) not null,
 descricaoGal text not null,
 fotosGaleria varbinary(255) not null,
 primary key(codGal)
 );
+
  
 desc tbFuncionarios;
 desc tbUsuarios;
@@ -145,3 +151,7 @@ desc tbProjetos;
 desc tbOrcamentos;
 desc tbAmbientes;
 desc tbGaleria;
+
+
+
+-- SELECT tbclientes.nomeCli, tipoImovel, tipoServico, status FROM `tbprojetos` inner join tbclientes on tbprojetos.codCli = tbclientes.codCli;
