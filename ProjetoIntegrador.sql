@@ -139,7 +139,7 @@ codGal int not null auto_increment,
 codImg int not null,
 tituloGal varchar (50) not null,
 descricaoGal text not null,
-fotosGaleria varbinary(255) not null,
+fotosGaleria mediumblob not null,
 primary key(codGal)
 );
 
