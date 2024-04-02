@@ -19,7 +19,7 @@ create table tbUsuarios(
 codUsu int not null auto_increment,
 nomeUsu varchar(50) not null,
 login char(8) not null,
-senha char(8) not null,
+senha varchar(255) not null,
 primary key(codUsu)
 );
  
