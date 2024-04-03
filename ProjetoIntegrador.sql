@@ -35,7 +35,7 @@ primary key(codCli)
 
 create table tbAmbientes(
 codAmb int not null auto_increment,
-nomeAmb varchar(15) not null,
+nomeAmb varchar(255) not null,
 primary key(codAmb)
 );
 -- insert into tbAmbientes(nomeAmb)values("teste");
