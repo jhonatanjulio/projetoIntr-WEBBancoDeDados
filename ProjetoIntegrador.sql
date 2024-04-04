@@ -50,7 +50,7 @@ cidade varchar(50) not null,
 complemento varchar(50) not null,
 tipoImovel varchar(50) not null, 
 tipoServico varchar(50) not null,
-metragem decimal(4,2) not null,
+metragem decimal(9,2) not null
 revestimentos varchar(50) not null,
 marcenaria varchar(50) not null,
 descricaoAmbiente text not null,
